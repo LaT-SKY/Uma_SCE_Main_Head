@@ -1,0 +1,59 @@
+﻿  SCEz_Test.cpp
+  UmaSCE_Main.cpp
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(188,275): error C2086: “int wit_bonus_”: 重定义
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(188,19): error C2511: “void UmaSCE_Main::Import(int,int,int,int,int,int,int,int,int,int,int,int)”:“UmaSCE_Main”中没有找到重载的成员函数
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(6,7):
+      参见“UmaSCE_Main”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(190,2): error C2597: 对非静态成员“UmaSCE_Main::type_static”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(15,6):
+      参见“UmaSCE_Main::type_static”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(191,2): error C2597: 对非静态成员“UmaSCE_Main::friendship_static”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(16,6):
+      参见“UmaSCE_Main::friendship_static”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(192,2): error C2597: 对非静态成员“UmaSCE_Main::friendship_award”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(18,6):
+      参见“UmaSCE_Main::friendship_award”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(193,2): error C2597: 对非静态成员“UmaSCE_Main::enthusiasm_award”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(19,6):
+      参见“UmaSCE_Main::enthusiasm_award”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(194,2): error C2597: 对非静态成员“UmaSCE_Main::training_award”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(20,6):
+      参见“UmaSCE_Main::training_award”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(195,2): error C2597: 对非静态成员“UmaSCE_Main::strike_point”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(22,6):
+      参见“UmaSCE_Main::strike_point”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(196,2): error C2597: 对非静态成员“UmaSCE_Main::friendship_point”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(23,6):
+      参见“UmaSCE_Main::friendship_point”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(197,2): error C2597: 对非静态成员“UmaSCE_Main::speed_bonus”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(25,6):
+      参见“UmaSCE_Main::speed_bonus”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(198,2): error C2597: 对非静态成员“UmaSCE_Main::stamina_bonus”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(26,6):
+      参见“UmaSCE_Main::stamina_bonus”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(199,2): error C2597: 对非静态成员“UmaSCE_Main::power_bonus”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(27,6):
+      参见“UmaSCE_Main::power_bonus”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(200,2): error C2597: 对非静态成员“UmaSCE_Main::willpower_bonus”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(28,6):
+      参见“UmaSCE_Main::willpower_bonus”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(201,2): error C2597: 对非静态成员“UmaSCE_Main::wit_bonus”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(29,6):
+      参见“UmaSCE_Main::wit_bonus”的声明
+  
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(202,2): error C2597: 对非静态成员“UmaSCE_Main::sp_bonus”的非法引用
+      C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.h(30,6):
+      参见“UmaSCE_Main::sp_bonus”的声明
+  
