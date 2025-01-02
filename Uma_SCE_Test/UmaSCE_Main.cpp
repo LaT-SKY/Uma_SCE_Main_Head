@@ -316,6 +316,23 @@ void UmaSCE_Main::Import(int type_static_, int friendship_static_, int friendshi
 	sp_bonus = sp_bonus_;
 }
 
+void UmaSCE_Main::Export(int& type_static_, int& friendship_static_, int& friendship_award_, int& enthusiasm_award_, int& training_award_, int& strike_point_, int& friendship_point_, int& speed_bonus_, int& stamina_bonus_, int& power_bonus_, int& willpower_bonus_, int& wit_bonus_, int& sp_bonus_) const
+{
+	type_static_ = type_static;
+	friendship_static_ = friendship_static;
+	friendship_award_ = friendship_award;
+	enthusiasm_award_ = enthusiasm_award;
+	training_award_ = training_award;
+	strike_point_ = strike_point;
+	friendship_point_ = friendship_point;
+	speed_bonus_ = speed_bonus;
+	stamina_bonus_ = stamina_bonus;
+	power_bonus_ = power_bonus;
+	willpower_bonus_ = willpower_bonus;
+	wit_bonus_ = wit_bonus;
+	sp_bonus_ = sp_bonus;
+}
+
 void UmaSCE_Main::Output(string Val_Typename) 
 {
 	Maprefresh();
@@ -531,9 +548,20 @@ void UmaSCE_Main::Destroy(string Val_Typename)
 	}
 }
 
-void UmaSCE_Main::SetNotice(bool is_notice_)
+void UmaSCE_Main::Layout(string Val_Typename,bool Val)
 {
-	is_notice = is_notice_;
+	if (Val_Typename == "notice")
+	{
+		is_notice = Val;
+	}
+	else
+	{
+		if (is_notice)
+		{
+			throw("无法识别的Val_Typename");
+			abort();
+		}
+	}
 }
 
 void UmaSCE_Main::EvalV1()
@@ -545,6 +573,18 @@ void UmaSCE_Main::EvalV1()
 		throw("v1_ept的值发生异常，其结果不能为负数");
 		abort();
 	}
+}
+
+double UmaSCE_Main::EvalV1(bool is_report)
+{
+	EvalV1();
+	return v1_ept;
+}
+
+void UmaSCE_Main::EvalV1(double& Carrier)
+{
+	EvalV1();
+	Carrier = v1_ept;
 }
 
 void UmaSCE_Main::EvalV2()
@@ -565,6 +605,18 @@ void UmaSCE_Main::EvalV2()
 		throw("v2_ept的值发生异常，其结果不能为负数");
 		abort();
 	}
+}
+
+double UmaSCE_Main::EvalV2(bool is_report)
+{
+	EvalV2();
+	return v2_ept;
+}
+
+void UmaSCE_Main::EvalV2(double& Carrier)
+{
+	EvalV2();
+	Carrier = v2_ept;
 }
 
 void UmaSCE_Main::EvalV3()
@@ -590,6 +642,24 @@ void UmaSCE_Main::EvalV3()
 		throw("v3_ept的值发生异常，其结果不能为负数");
 		abort();
 	}
+}
+
+double UmaSCE_Main::EvalV3(bool is_report)
+{
+	EvalV3();
+	return v3_ept;
+}
+
+void UmaSCE_Main::EvalV3(double& strike_rate, double& unstrike_rate) const
+{
+	strike_rate = (strike_point + static_cast<double>(100)) / (strike_point + 550);
+	unstrike_rate = 100 / (strike_point + static_cast<double>(550));
+}
+
+void UmaSCE_Main::EvalV3(double& Carrier)
+{
+	EvalV3();
+	Carrier = v3_ept;
 }
 
 void UmaSCE_Main::EvalV4()
@@ -636,6 +706,20 @@ void UmaSCE_Main::EvalV4()
 	}
 }
 
+void UmaSCE_Main::EvalV4(int& Carrier_main, int& Carrier_fold, int& Carrier_sp)
+{
+	EvalV4();
+	Carrier_main = v4main_ept;
+	Carrier_fold = v4fold_ept;
+	Carrier_sp = v4sp_ept;
+}
+
+void UmaSCE_Main::EvalV4(double& Carrier_failure_rate)
+{
+	EvalV4();
+	Carrier_failure_rate = ((static_cast<double>(80) - friendship_point) / 5) / 72;
+}
+
 void UmaSCE_Main::EvalDi(UmaSCE_Main_Diset diset)
 {
 	UmaSCE_Main transcript{};
@@ -665,6 +749,14 @@ void UmaSCE_Main::EvalDi(UmaSCE_Main_Diset diset)
 	v4main_ept = transcript.v4main_ept;
 	v4fold_ept = transcript.v4fold_ept;
 	v4sp_ept = transcript.v4sp_ept;
+}
+
+void UmaSCE_Main::EvalDi(UmaSCE_Main_Diset diset, int& Carrier_main, int& Carrier_fold, int& Carrier_sp)
+{
+	EvalDi(diset);
+	Carrier_main = v4main_ept;
+	Carrier_fold = v4fold_ept;
+	Carrier_sp = v4sp_ept;
 }
 
 void UmaSCE_Main::EvalV5()
