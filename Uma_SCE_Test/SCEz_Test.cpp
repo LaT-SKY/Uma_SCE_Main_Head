@@ -15,6 +15,9 @@ int main()
 	uma1.Output("v4main_ept") ;
 	uma1.EvalV4(a);
 	cout << endl << a << endl;
+	uma1.Exchange(uma2);
+	uma2.EvalV1();
+	uma2.Output("v1_ept");
 	//uma1.Copy(uma2);
 	//uma1.Export("type_static");
 	return 0;

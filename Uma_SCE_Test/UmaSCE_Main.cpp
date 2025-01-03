@@ -42,158 +42,260 @@ UmaSCE_Main::~UmaSCE_Main()
 	;
 }
 
-void UmaSCE_Main::Maprefresh()
-{
-	valmap_int =
-	{
-		{"type_static",type_static},
-		{"friendship_static",friendship_static},
-		{"friendship_award",friendship_award},
-		{"enthusiasm_award",enthusiasm_award},
-		{"training_award",training_award},
-		{"strike_point",strike_point},
-		{"friendship_point",friendship_point},
-		{"speed_bonus",speed_bonus},
-		{"stamina_bonus",stamina_bonus},
-		{"power_bonus",power_bonus},
-		{"willpower_bonus",willpower_bonus},
-		{"wit_bonus",wit_bonus},
-		{"sp_bonus",sp_bonus},
-		{"v4main_ept",v4main_ept},
-		{"v4fold_ept",v4fold_ept},
-		{"v4sp_ept",v4sp_ept},
-		{"v5main_ept",v5main_ept},
-		{"v5fold_ept",v5fold_ept},
-		{"v5sp_ept",v5sp_ept}
-	};
-	valmap_double =
-	{
-		{"v1_ept",v1_ept},
-		{"v2_ept",v2_ept},
-		{"v3_ept",v3_ept}
-	};
-	valmap_bool =
-	{
-		{"is_notice",is_notice}
-	};
-}
+//void UmaSCE_Main::Maprefresh()
+//{
+//	valmap_int =
+//	{
+//		{"type_static",type_static},
+//		{"friendship_static",friendship_static},
+//		{"friendship_award",friendship_award},
+//		{"enthusiasm_award",enthusiasm_award},
+//		{"training_award",training_award},
+//		{"strike_point",strike_point},
+//		{"friendship_point",friendship_point},
+//		{"speed_bonus",speed_bonus},
+//		{"stamina_bonus",stamina_bonus},
+//		{"power_bonus",power_bonus},
+//		{"willpower_bonus",willpower_bonus},
+//		{"wit_bonus",wit_bonus},
+//		{"sp_bonus",sp_bonus},
+//		{"v4main_ept",v4main_ept},
+//		{"v4fold_ept",v4fold_ept},
+//		{"v4sp_ept",v4sp_ept},
+//		{"v5main_ept",v5main_ept},
+//		{"v5fold_ept",v5fold_ept},
+//		{"v5sp_ept",v5sp_ept}
+//	};
+//	valmap_double =
+//	{
+//		{"v1_ept",v1_ept},
+//		{"v2_ept",v2_ept},
+//		{"v3_ept",v3_ept}
+//	};
+//	valmap_bool =
+//	{
+//		{"is_notice",is_notice}
+//	};
+//}
 
-void UmaSCE_Main::Exchange(UmaSCE_Main temp) 
+void UmaSCE_Main::Exchange(UmaSCE_Main& temp) 
 {
-	Maprefresh();
-	auto main_int_iterator = valmap_int.begin();
-	auto main_double_iterator = valmap_double.begin();
-	auto main_bool_iterator = valmap_bool.begin();
-	auto temp_int_iterator = temp.valmap_int.begin();
-	auto temp_double_iterator = temp.valmap_double.begin();
-	auto temp_bool_iterator = temp.valmap_bool.begin();
-	while (main_int_iterator != valmap_int.end())
-	{
-		swap(main_int_iterator->second, temp_int_iterator->second);
-		main_int_iterator++;
-		temp_int_iterator++;
-	}
-	while (main_double_iterator != valmap_double.end())
-	{
-		swap(main_double_iterator->second, temp_double_iterator->second);
-		main_double_iterator++;
-		temp_double_iterator++;
-	}
-	while (main_bool_iterator != valmap_bool.end())
-	{
-		swap(main_bool_iterator->second, temp_bool_iterator->second);
-		main_bool_iterator++;
-		temp_bool_iterator++;
-	}
-	Maprefresh();
- //   swap(type_static, temp.type_static);
- //   swap(friendship_static, temp.friendship_static);
- //   swap(friendship_award, temp.friendship_award);
- //   swap(enthusiasm_award, temp.enthusiasm_award);
- //   swap(training_award, temp.training_award);
- //   swap(strike_point, temp.strike_point);
- //   swap(friendship_point, temp.friendship_point);
- //   swap(speed_bonus, temp.speed_bonus);
- //   swap(stamina_bonus, temp.stamina_bonus);
- //   swap(power_bonus, temp.power_bonus);
- //   swap(willpower_bonus, temp.willpower_bonus);
- //   swap(wit_bonus, temp.wit_bonus);
- //   swap(sp_bonus, temp.sp_bonus);
-	//swap(v1_ept, temp.v1_ept);
-	//swap(v2_ept, temp.v2_ept);
-	//swap(v3_ept, temp.v3_ept);
-	//swap(v4main_ept, temp.v4main_ept);
-	//swap(v4fold_ept, temp.v4fold_ept);
-	//swap(v4sp_ept, temp.v4sp_ept);
-	//swap(v5main_ept, temp.v5main_ept);
-	//swap(v5fold_ept, temp.v5fold_ept);
-	//swap(v5sp_ept, temp.v5sp_ept);
+	//Maprefresh();
+	//auto main_int_iterator = valmap_int.begin();
+	//auto main_double_iterator = valmap_double.begin();
+	//auto main_bool_iterator = valmap_bool.begin();
+	//auto temp_int_iterator = temp.valmap_int.begin();
+	//auto temp_double_iterator = temp.valmap_double.begin();
+	//auto temp_bool_iterator = temp.valmap_bool.begin();
+	//while (main_int_iterator != valmap_int.end())
+	//{
+	//	swap(main_int_iterator->second, temp_int_iterator->second);
+	//	main_int_iterator++;
+	//	temp_int_iterator++;
+	//}
+	//while (main_double_iterator != valmap_double.end())
+	//{
+	//	swap(main_double_iterator->second, temp_double_iterator->second);
+	//	main_double_iterator++;
+	//	temp_double_iterator++;
+	//}
+	//while (main_bool_iterator != valmap_bool.end())
+	//{
+	//	swap(main_bool_iterator->second, temp_bool_iterator->second);
+	//	main_bool_iterator++;
+	//	temp_bool_iterator++;
+	//}
+	//Maprefresh();
+    swap(type_static, temp.type_static);
+    swap(friendship_static, temp.friendship_static);
+    swap(friendship_award, temp.friendship_award);
+    swap(enthusiasm_award, temp.enthusiasm_award);
+    swap(training_award, temp.training_award);
+    swap(strike_point, temp.strike_point);
+    swap(friendship_point, temp.friendship_point);
+    swap(speed_bonus, temp.speed_bonus);
+    swap(stamina_bonus, temp.stamina_bonus);
+    swap(power_bonus, temp.power_bonus);
+    swap(willpower_bonus, temp.willpower_bonus);
+    swap(wit_bonus, temp.wit_bonus);
+    swap(sp_bonus, temp.sp_bonus);
+	swap(v1_ept, temp.v1_ept);
+	swap(v2_ept, temp.v2_ept);
+	swap(v3_ept, temp.v3_ept);
+	swap(v4main_ept, temp.v4main_ept);
+	swap(v4fold_ept, temp.v4fold_ept);
+	swap(v4sp_ept, temp.v4sp_ept);
+	swap(v5main_ept, temp.v5main_ept);
+	swap(v5fold_ept, temp.v5fold_ept);
+	swap(v5sp_ept, temp.v5sp_ept);
 }
 
 void UmaSCE_Main::Copy(UmaSCE_Main temp) 
 {
-	Maprefresh();
-	auto main_int_iterator = valmap_int.begin();
-	auto main_double_iterator = valmap_double.begin();
-	auto main_bool_iterator = valmap_bool.begin();
-	auto temp_int_iterator = temp.valmap_int.begin();
-	auto temp_double_iterator = temp.valmap_double.begin();
-	auto temp_bool_iterator = temp.valmap_bool.begin();
-	while (main_int_iterator != valmap_int.end())
-	{
-		main_int_iterator->second = temp_int_iterator->second;
-		main_int_iterator++;
-		temp_int_iterator++;
-	}
-	while (main_double_iterator != valmap_double.end())
-	{
-		main_double_iterator->second = temp_double_iterator->second;
-		main_double_iterator++;
-		temp_double_iterator++;
-	}
-	while (main_bool_iterator != valmap_bool.end())
-	{
-		main_bool_iterator->second = temp_bool_iterator->second;
-		main_bool_iterator++;
-		temp_bool_iterator++;
-	}
-	Maprefresh();
- //   type_static = temp.type_static;
- //   friendship_static = temp.friendship_static;
- //   friendship_award = temp.friendship_award;
- //   enthusiasm_award = temp.enthusiasm_award;
- //   training_award = temp.training_award;
- //   strike_point = temp.strike_point;
- //   friendship_point = temp.friendship_point;
- //   speed_bonus = temp.speed_bonus;
- //   stamina_bonus = temp.stamina_bonus;
- //   power_bonus = temp.power_bonus;
- //   willpower_bonus = temp.willpower_bonus;
- //   wit_bonus = temp.wit_bonus;
- //   sp_bonus = temp.sp_bonus;
-	//v1_ept = temp.v1_ept;
-	//v2_ept = temp.v2_ept;
-	//v3_ept = temp.v3_ept;
-	//v4main_ept = temp.v4main_ept;
-	//v4fold_ept = temp.v4fold_ept;
-	//v4sp_ept = temp.v4sp_ept;
-	//v5main_ept = temp.v5main_ept;
-	//v5fold_ept = temp.v5fold_ept;
-	//v5sp_ept = temp.v5sp_ept;
+	//Maprefresh();
+	//auto main_int_iterator = valmap_int.begin();
+	//auto main_double_iterator = valmap_double.begin();
+	//auto main_bool_iterator = valmap_bool.begin();
+	//auto temp_int_iterator = temp.valmap_int.begin();
+	//auto temp_double_iterator = temp.valmap_double.begin();
+	//auto temp_bool_iterator = temp.valmap_bool.begin();
+	//while (main_int_iterator != valmap_int.end())
+	//{
+	//	main_int_iterator->second = temp_int_iterator->second;
+	//	main_int_iterator++;
+	//	temp_int_iterator++;
+	//}
+	//while (main_double_iterator != valmap_double.end())
+	//{
+	//	main_double_iterator->second = temp_double_iterator->second;
+	//	main_double_iterator++;
+	//	temp_double_iterator++;
+	//}
+	//while (main_bool_iterator != valmap_bool.end())
+	//{
+	//	main_bool_iterator->second = temp_bool_iterator->second;
+	//	main_bool_iterator++;
+	//	temp_bool_iterator++;
+	//}
+	//Maprefresh();
+    type_static = temp.type_static;
+    friendship_static = temp.friendship_static;
+    friendship_award = temp.friendship_award;
+    enthusiasm_award = temp.enthusiasm_award;
+    training_award = temp.training_award;
+    strike_point = temp.strike_point;
+    friendship_point = temp.friendship_point;
+    speed_bonus = temp.speed_bonus;
+    stamina_bonus = temp.stamina_bonus;
+    power_bonus = temp.power_bonus;
+    willpower_bonus = temp.willpower_bonus;
+    wit_bonus = temp.wit_bonus;
+    sp_bonus = temp.sp_bonus;
+	v1_ept = temp.v1_ept;
+	v2_ept = temp.v2_ept;
+	v3_ept = temp.v3_ept;
+	v4main_ept = temp.v4main_ept;
+	v4fold_ept = temp.v4fold_ept;
+	v4sp_ept = temp.v4sp_ept;
+	v5main_ept = temp.v5main_ept;
+	v5fold_ept = temp.v5fold_ept;
+	v5sp_ept = temp.v5sp_ept;
 }
 
 void UmaSCE_Main::Input(string Val_Typename, int Value) 
 {
-	if (Value < 0 and is_notice)
+	//if (Value < 0 and is_notice)
+	//{
+	//	throw("Value不能为负数");
+	//	abort();
+	//}
+	//Maprefresh();
+	//auto int_iterator = valmap_int.find(Val_Typename);
+	//if (int_iterator != valmap_int.end())
+	//{
+	//	int_iterator->second = Value;
+	//}
+	//else
+	//{
+	//	if (is_notice)
+	//	{
+	//		throw("无法识别的Val_Typename");
+	//		abort();
+	//	}
+	//}
+	//Maprefresh();
+    if (Val_Typename == "type_static" and is_notice) 
 	{
-		throw("Value不能为负数");
-		abort();
+        type_static = Value;
+		if (type_static > 4)
+		{
+			throw("type_static的值只能是[ 0 , 4 ]");
+			abort();
+		}
+    } 
+	else if (Val_Typename == "friendship_static") 
+	{
+        friendship_static = Value;
+    } 
+	else if (Val_Typename == "friendship_award") 
+	{
+        friendship_award = Value;
+    } 
+	else if (Val_Typename == "enthusiasm_award") 
+	{
+        enthusiasm_award = Value;
+    } 
+	else if (Val_Typename == "training_award") 
+	{
+        training_award = Value;
+    } 
+	else if (Val_Typename == "strike_point") 
+	{
+        strike_point = Value;
+    } 
+	else if (Val_Typename == "friendship_point") 
+	{
+        friendship_point = Value;
+    } 
+	else if (Val_Typename == "speed_bonus") 
+	{
+        speed_bonus = Value;
+    } 
+	else if (Val_Typename == "stamina_bonus") 
+	{
+        stamina_bonus = Value;
+    } 
+	else if (Val_Typename == "power_bonus") 
+	{
+        power_bonus = Value;
+    } 
+	else if (Val_Typename == "willpower_bonus") 
+	{
+        willpower_bonus = Value;
+    } 
+	else if (Val_Typename == "wit_bonus") 
+	{
+        wit_bonus = Value;
+    } 
+	else if (Val_Typename == "sp_bonus") 
+	{
+        sp_bonus = Value;
 	}
-	Maprefresh();
-	auto int_iterator = valmap_int.find(Val_Typename);
-	if (int_iterator != valmap_int.end())
+    else if (Val_Typename == "v1_ept") 
 	{
-		int_iterator->second = Value;
+        v1_ept = Value;
+	}
+	else if (Val_Typename == "v2_ept") 
+	{
+		v2_ept = Value;
+	}
+	else if (Val_Typename == "v3_ept") 
+	{
+		v3_ept = Value;
+	}
+	else if (Val_Typename == "v4main_ept") 
+	{
+		v4main_ept = Value;
+	}
+	else if (Val_Typename == "v4fold_ept") 
+	{
+		v4fold_ept = Value;
+	}
+	else if (Val_Typename == "v4sp_ept") 
+	{
+		v4sp_ept = Value;
+	}
+	else if (Val_Typename == "v5main_ept") 
+	{
+		v5main_ept = Value;
+	}
+	else if (Val_Typename == "v5fold_ept") 
+	{
+		v5fold_ept = Value;
+	}
+    else if (Val_Typename == "v5sp_ept") 
+	{
+        v5sp_ept = Value;
 	}
 	else
 	{
@@ -203,100 +305,6 @@ void UmaSCE_Main::Input(string Val_Typename, int Value)
 			abort();
 		}
 	}
-	Maprefresh();
- //   if (Val_Typename == "type_static" and is_notice) 
-	//{
- //       type_static = Value;
-	//	if (type_static > 4)
-	//	{
-	//		throw("type_static的值只能是[ 0 , 4 ]");
-	//		abort();
-	//	}
- //   } 
-	//else if (Val_Typename == "friendship_static") 
-	//{
- //       friendship_static = Value;
- //   } 
-	//else if (Val_Typename == "friendship_award") 
-	//{
- //       friendship_award = Value;
- //   } 
-	//else if (Val_Typename == "enthusiasm_award") 
-	//{
- //       enthusiasm_award = Value;
- //   } 
-	//else if (Val_Typename == "training_award") 
-	//{
- //       training_award = Value;
- //   } 
-	//else if (Val_Typename == "strike_point") 
-	//{
- //       strike_point = Value;
- //   } 
-	//else if (Val_Typename == "friendship_point") 
-	//{
- //       friendship_point = Value;
- //   } 
-	//else if (Val_Typename == "speed_bonus") 
-	//{
- //       speed_bonus = Value;
- //   } 
-	//else if (Val_Typename == "stamina_bonus") 
-	//{
- //       stamina_bonus = Value;
- //   } 
-	//else if (Val_Typename == "power_bonus") 
-	//{
- //       power_bonus = Value;
- //   } 
-	//else if (Val_Typename == "willpower_bonus") 
-	//{
- //       willpower_bonus = Value;
- //   } 
-	//else if (Val_Typename == "wit_bonus") 
-	//{
- //       wit_bonus = Value;
- //   } 
-	//else if (Val_Typename == "sp_bonus") 
-	//{
- //       sp_bonus = Value;
-	//}
- //   else if (Val_Typename == "v1_ept") 
-	//{
- //       v1_ept = Value;
-	//}
-	//else if (Val_Typename == "v2_ept") 
-	//{
-	//	v2_ept = Value;
-	//}
-	//else if (Val_Typename == "v3_ept") 
-	//{
-	//	v3_ept = Value;
-	//}
-	//else if (Val_Typename == "v4main_ept") 
-	//{
-	//	v4main_ept = Value;
-	//}
-	//else if (Val_Typename == "v4fold_ept") 
-	//{
-	//	v4fold_ept = Value;
-	//}
-	//else if (Val_Typename == "v4sp_ept") 
-	//{
-	//	v4sp_ept = Value;
-	//}
-	//else if (Val_Typename == "v5main_ept") 
-	//{
-	//	v5main_ept = Value;
-	//}
-	//else if (Val_Typename == "v5fold_ept") 
-	//{
-	//	v5fold_ept = Value;
-	//}
- //   else if (Val_Typename == "v5sp_ept") 
-	//{
- //       v5sp_ept = Value;
- //   }
 }
 
 void UmaSCE_Main::Import(int type_static_, int friendship_static_, int friendship_award_, int enthusiasm_award_, int training_award_, int strike_point_, int friendship_point_, int speed_bonus_, int stamina_bonus_, int power_bonus_, int willpower_bonus_, int wit_bonus_, int sp_bonus_)
@@ -333,128 +341,141 @@ void UmaSCE_Main::Export(int& type_static_, int& friendship_static_, int& friend
 	sp_bonus_ = sp_bonus;
 }
 
+void UmaSCE_Main::Export(double& v1_ept_, double& v2_ept_, double& v3_ept_, int& v4main_ept_, int& v4fold_ept_, int& v4sp_ept_, int& v5main_ept_, int& v5fold_ept_, int& v5sp_ept_)
+{
+	v1_ept_ = v1_ept;
+	v2_ept_ = v2_ept;
+	v3_ept_ = v3_ept;
+	v4main_ept_ = v4main_ept;
+	v4fold_ept_ = v4fold_ept;
+	v4sp_ept_ = v4sp_ept;
+	v5main_ept_ = v5main_ept;
+	v5fold_ept_ = v5fold_ept;
+	v5sp_ept_ = v5sp_ept;
+}
+
 void UmaSCE_Main::Output(string Val_Typename) 
 {
-	Maprefresh();
-	auto int_iterator = valmap_int.find(Val_Typename);
-	auto double_iterator = valmap_double.find(Val_Typename);
-	auto bool_iterator = valmap_bool.find(Val_Typename);
-	if (int_iterator != valmap_int.end())
-	{
-		cout << int_iterator->second;
-	}
-	else if (double_iterator != valmap_double.end())
-	{
-		cout << double_iterator->second;
-	}
-	else if (bool_iterator != valmap_bool.end())
-	{
-		cout << bool_iterator->second;
-	}
-	else
-	{
-		if (is_notice)
-		{
-			throw("无法识别的Val_Typename");
-			abort();
-		}
-	}
- //   if (Val_Typename == "type_static") 
+	//Maprefresh();
+	//auto int_iterator = valmap_int.find(Val_Typename);
+	//auto double_iterator = valmap_double.find(Val_Typename);
+	//auto bool_iterator = valmap_bool.find(Val_Typename);
+	//if (int_iterator != valmap_int.end())
 	//{
- //       cout << type_static;
- //   } 
-	//else if (Val_Typename == "friendship_static") 
-	//{
- //       cout << friendship_static;
- //   } 
-	//else if (Val_Typename == "friendship_award") 
-	//{
- //       cout << friendship_award;
- //   } 
-	//else if (Val_Typename == "enthusiasm_award") 
-	//{
- //       cout << enthusiasm_award;
- //   } 
-	//else if (Val_Typename == "training_award") 
-	//{
- //       cout << training_award;
- //   } 
-	//else if (Val_Typename == "strike_point") 
-	//{
- //       cout << strike_point;
- //   } 
-	//else if (Val_Typename == "friendship_point") 
-	//{
- //       cout << friendship_point;
- //   } 
-	//else if (Val_Typename == "speed_bonus") 
-	//{
- //       cout << speed_bonus;
- //   } 
-	//else if (Val_Typename == "stamina_bonus") 
-	//{
- //       cout << stamina_bonus;
- //   } 
-	//else if (Val_Typename == "power_bonus") 
-	//{
- //       cout << power_bonus;
- //   } 
-	//else if (Val_Typename == "willpower_bonus") 
-	//{
- //       cout << willpower_bonus;
- //   } 
-	//else if (Val_Typename == "wit_bonus") 
-	//{
- //       cout << wit_bonus;
- //   } 
-	//else if (Val_Typename == "sp_bonus") 
-	//{
- //       cout << sp_bonus;
+	//	cout << int_iterator->second;
 	//}
-	//else if (Val_Typename == "v1_ept") 
+	//else if (double_iterator != valmap_double.end())
 	//{
-	//	cout << v1_ept;
+	//	cout << double_iterator->second;
 	//}
-	//else if (Val_Typename == "v2_ept") 
+	//else if (bool_iterator != valmap_bool.end())
 	//{
-	//	cout << v2_ept;
+	//	cout << bool_iterator->second;
 	//}
-	//else if (Val_Typename == "v3_ept") 
-	//{
-	//	cout << v3_ept;
-	//}
-	//else if (Val_Typename == "v4main_ept") 
-	//{
-	//	cout << v4main_ept;
-	//}
-	//else if (Val_Typename == "v4fold_ept") 
-	//{
-	//	cout << v4fold_ept;
-	//}
-	//else if (Val_Typename == "v4sp_ept") 
-	//{
-	//	cout << v4sp_ept;
-	//}
-	//else if (Val_Typename == "v5main_ept") 
-	//{
-	//	cout << v5main_ept;
-	//}
-	//else if (Val_Typename == "v5fold_ept") 
-	//{
-	//	cout << v5fold_ept;
-	//}
- //   else if (Val_Typename == "v5sp_ept") 
-	//{
- //       cout << v5sp_ept;
- //   }
 	//else
 	//{
-	//	if(is_notice)
+	//	if (is_notice)
 	//	{
-	//		throw ("无法识别的Val_Typename");
+	//		throw("无法识别的Val_Typename");
 	//		abort();
 	//	}
 	//}
+    if (Val_Typename == "type_static") 
+	{
+        cout << type_static;
+    } 
+	else if (Val_Typename == "friendship_static") 
+	{
+        cout << friendship_static;
+    } 
+	else if (Val_Typename == "friendship_award") 
+	{
+        cout << friendship_award;
+    } 
+	else if (Val_Typename == "enthusiasm_award") 
+	{
+        cout << enthusiasm_award;
+    } 
+	else if (Val_Typename == "training_award") 
+	{
+        cout << training_award;
+    } 
+	else if (Val_Typename == "strike_point") 
+	{
+        cout << strike_point;
+    } 
+	else if (Val_Typename == "friendship_point") 
+	{
+        cout << friendship_point;
+    } 
+	else if (Val_Typename == "speed_bonus") 
+	{
+        cout << speed_bonus;
+    } 
+	else if (Val_Typename == "stamina_bonus") 
+	{
+        cout << stamina_bonus;
+    } 
+	else if (Val_Typename == "power_bonus") 
+	{
+        cout << power_bonus;
+    } 
+	else if (Val_Typename == "willpower_bonus") 
+	{
+        cout << willpower_bonus;
+    } 
+	else if (Val_Typename == "wit_bonus") 
+	{
+        cout << wit_bonus;
+    } 
+	else if (Val_Typename == "sp_bonus") 
+	{
+        cout << sp_bonus;
+	}
+	else if (Val_Typename == "v1_ept") 
+	{
+		cout << v1_ept;
+	}
+	else if (Val_Typename == "v2_ept") 
+	{
+		cout << v2_ept;
+	}
+	else if (Val_Typename == "v3_ept") 
+	{
+		cout << v3_ept;
+	}
+	else if (Val_Typename == "v4main_ept") 
+	{
+		cout << v4main_ept;
+	}
+	else if (Val_Typename == "v4fold_ept") 
+	{
+		cout << v4fold_ept;
+	}
+	else if (Val_Typename == "v4sp_ept") 
+	{
+		cout << v4sp_ept;
+	}
+	else if (Val_Typename == "v5main_ept") 
+	{
+		cout << v5main_ept;
+	}
+	else if (Val_Typename == "v5fold_ept") 
+	{
+		cout << v5fold_ept;
+	}
+    else if (Val_Typename == "v5sp_ept") 
+	{
+        cout << v5sp_ept;
+    }
+	else
+	{
+		if(is_notice)
+		{
+			throw ("无法识别的Val_Typename");
+			abort();
+		}
+	}
 }
 
 void UmaSCE_Main::Destroy()
@@ -597,6 +618,7 @@ void UmaSCE_Main::EvalV2()
 	case 2:v2_bonus = power_bonus; break;
 	case 3:v2_bonus = willpower_bonus; break;
 	case 4:v2_bonus = wit_bonus; break;
+	default:if (is_notice) { throw("意料之外的type_static值"); abort(); }
 	}
 	EvalV1();
 	v2_ept = v1_ept + 0.1 * v1_ept * v2_bonus;
