@@ -571,11 +571,19 @@ void UmaSCE_Main::Destroy(string Val_Typename)
 	}
 }
 
-void UmaSCE_Main::Layout(string Val_Typename,bool Val)
+void UmaSCE_Main::Layout(string Val_Typename,int Val)
 {
 	if (Val_Typename == "notice")
 	{
 		is_notice = Val;
+	}
+	else if (Val_Typename == "is_dominant_lead")
+	{
+		is_dominant_lead = Val;
+	}
+	else if (length)
+	{
+		length = Val;
 	}
 	else
 	{
@@ -783,7 +791,7 @@ void UmaSCE_Main::EvalDi(UmaSCE_Main_Diset diset, int& Carrier_main, int& Carrie
 	Carrier_sp = v4sp_ept;
 }
 
-void UmaSCE_Main::EvalV5(bool is_dominant_lead, int length)
+void UmaSCE_Main::EvalV5(int times)
 {
 	vector<UmaSCE_Main>card_vector(6);
 	//分配s卡
@@ -961,9 +969,151 @@ void UmaSCE_Main::EvalV5(bool is_dominant_lead, int length)
 			strike_rate_vector[m].strike_rate = (i.strike_point + static_cast<double>(100)) / (i.strike_point + 550);
 			strike_rate_vector[m].unstrike_rate = (100 / (i.strike_point + static_cast<double>(550))) * 4;
 			m++;
-		}
+		}//i结束
 	}
 	srand(time(NULL));
 	//外圈循环
+	while (times > 0)
+	{
+		//此处还有初始化
+		round = 0;
+		stage = 0;
+		for (auto& i : attributes_vector)
+		{
+			i.present = 0;
+			i.expectation = 0;
+		}//i结束
+		while (round < 73)
+		{
+			for (auto& i : ground_vector)
+			{
+				i.friendship_rate = 1;
+				i.training_award = 0;
+				i.enthusiasm_award = 0;
+				i.member_award = 0;
+				i.ground_bonus = 0;
+				i.viceground_bonus = { 0,0,0,0,0,0 };
+				i.spground_bonus = 0;
+				i.added = 0;
+				i.viceadded = { 0,0,0,0,0,0 };
+				i.spadded = 0;
+				i.click_times = 0;
+				i.temp_click_times = 0;
+				i.scale = 0;
+				i.score = 0;
+			}//i结束
+			++round;
+			//分配支援卡至各个场地
+			double temp_check_strike = rand();
+			{
+				int m = 0;
+				for (auto& i : card_vector)
+				{
+					if (temp_check_strike < strike_rate_vector[m].strike_rate)
+					{
+						i.present_ground = i.type_static;
+						//present_ground为私有成员
+					}
+					else if (temp_check_strike < strike_rate_vector[m].strike_rate+strike_rate_vector[m].unstrike_rate)
+					{
+						while (i.present_ground != i.type_static)
+						{
+							i.present_ground = rand() % 4;
+						}
+					}
+					else
+					{
+						i.present_ground = -1;
+					}
+				}//i结束
+			}
+			//分配s卡信息至各个ground_vector内
+			for (auto& i : card_vector)
+			{
+				if(i.present_ground>=0)
+				{
+					ground_vector[i.present_ground].training_award += i.training_award;
+					ground_vector[i.present_ground].enthusiasm_award += i.enthusiasm_award;
+					if (i.present_friendship_point >= 80 and i.present_ground == i.type_static)
+					{
+						ground_vector[i.present_ground].friendship_rate *= (i.friendship_award * 0.01 + 1) * (i.friendship_static * 0.01 + 1);
+					}
+					ground_vector[i.present_ground].member_award += 1;
+				}
+			}//i结束
+			//分配bonus至各个ground_vector内
+			for (auto& i : card_vector)
+			{
+				if (i.type_static == 0 and i.present_ground == 0)
+				{
+					ground_vector[0].ground_bonus += i.speed_bonus;
+					ground_vector[0].viceground_bonus[1] += i.stamina_bonus;
+					ground_vector[0].viceground_bonus[2] += i.power_bonus;
+					ground_vector[0].viceground_bonus[3] += i.willpower_bonus;
+					ground_vector[0].viceground_bonus[4] += i.wit_bonus;
+					ground_vector[0].spground_bonus += i.sp_bonus;
+				}
+				else if (i.type_static == 1 and i.present_ground == 1)
+				{
+					ground_vector[1].ground_bonus += i.stamina_bonus;
+					ground_vector[1].viceground_bonus[0] += i.speed_bonus;
+					ground_vector[1].viceground_bonus[2] += i.power_bonus;
+					ground_vector[1].viceground_bonus[3] += i.willpower_bonus;
+					ground_vector[1].viceground_bonus[4] += i.wit_bonus;
+					ground_vector[1].spground_bonus += i.sp_bonus;
+				}
+				else if (i.type_static == 2 and i.present_ground == 2)
+				{
+					ground_vector[2].ground_bonus += i.power_bonus;
+					ground_vector[2].viceground_bonus[0] += i.speed_bonus;
+					ground_vector[2].viceground_bonus[1] += i.stamina_bonus;
+					ground_vector[2].viceground_bonus[3] += i.willpower_bonus;
+					ground_vector[2].viceground_bonus[4] += i.wit_bonus;
+					ground_vector[2].spground_bonus += i.sp_bonus;
+				}
+				else if (i.type_static == 3 and i.present_ground == 3)
+				{
+					ground_vector[3].ground_bonus += i.willpower_bonus;
+					ground_vector[3].viceground_bonus[0] += i.speed_bonus;
+					ground_vector[3].viceground_bonus[1] += i.stamina_bonus;
+					ground_vector[3].viceground_bonus[2] += i.power_bonus;
+					ground_vector[3].viceground_bonus[4] += i.wit_bonus;
+					ground_vector[3].spground_bonus += i.sp_bonus;
+				}
+				else if (i.type_static == 4 and i.present_ground == 4)
+				{
+					ground_vector[4].ground_bonus += i.wit_bonus;
+					ground_vector[4].viceground_bonus[0] += i.speed_bonus;
+					ground_vector[4].viceground_bonus[1] += i.stamina_bonus;
+					ground_vector[4].viceground_bonus[2] += i.power_bonus;
+					ground_vector[4].viceground_bonus[3] += i.willpower_bonus;
+					ground_vector[4].spground_bonus += i.sp_bonus;
+				}
+			}//i结束
+			//计算added  viceadded与spadded
+			{
+				int m = 0;
+				for (auto& i : ground_vector)
+				{
+					int temp_basic_bonus;
+					int temp_vicebouns;
+					int temp_spbonus;
+					switch (i.scale)
+					{
+					case 1:temp_basic_bonus = 10; temp_vicebouns = 3; temp_spbonus = 2; break;
+					case 2:temp_basic_bonus = 11; temp_vicebouns = 4; temp_spbonus = 3; break;
+					case 3:temp_basic_bonus = 12; temp_vicebouns = 5; temp_spbonus = 4; break;
+					case 4:temp_basic_bonus = 13; temp_vicebouns = 6; temp_spbonus = 5; break;
+					case 5:temp_basic_bonus = 14; temp_vicebouns = 7; temp_spbonus = 6; break;
+					default:if (is_notice) { throw("意料之外的scale值"); abort(); }
+					}
+					i.added = (temp_basic_bonus + i.ground_bonus) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
+					//viceadded
+				}
+			}
 
+
+
+		}//内圈循环结束
+	}//外圈循环结束
 }

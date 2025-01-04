@@ -61,7 +61,7 @@ public:
 	void Destroy();//清空a的值
 	void Destroy(string Val_Typename);//依据类型a清空a的值
 
-	void Layout(string Val_Typename, bool Val);//对Uma_SCE_Main进行布局，即设置
+	void Layout(string Val_Typename, int Val);//对Uma_SCE_Main进行布局，即设置
 
 	void EvalV1();//计算v1
 	double EvalV1(bool is_return);//直接返回值
@@ -83,12 +83,16 @@ public:
 	void EvalDi(UmaSCE_Main_Diset diset);//计算di
 	void EvalDi(UmaSCE_Main_Diset diset, int& Carrier_main, int& Carrier_fold, int& Carrier_sp);//直接获得di
 
-	void EvalV5(bool is_dominant_lead,int length);//计算v5
+	void EvalV5(int times);//计算v5
 
 private:
 
 	double unstrike_v1_ept;
 	bool is_notice;
+	bool is_dominant_lead;
+	int length;
+	int present_ground;
+	int present_friendship_point;
 
 	//map<string, int> valmap_int{};
 	//map<string, double> valmap_double{};
