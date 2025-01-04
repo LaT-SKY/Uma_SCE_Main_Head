@@ -1,3 +1,7 @@
+///////////////////////
+//   UmaSCE_Main    //
+//    By LaT-SKY    //
+///////////////////////
 #pragma once
 
 #include<string>
@@ -55,7 +59,7 @@ public:
 	void Export(double& v1_ept_, double& v2_ept_, double& v3_ept_, int& v4main_ept_, int& v4fold_ept_, int& v4sp_ept_, int& v5main_ept_, int& v5fold_ept_, int& v5sp_ept_);//批量输出ept的值
 	void Output(string Val_Typename);//输出a的值
 	void Destroy();//清空a的值
-	void Destroy(string Val_Typename);//清空a的值
+	void Destroy(string Val_Typename);//依据类型a清空a的值
 
 	void Layout(string Val_Typename, bool Val);//对Uma_SCE_Main进行布局，即设置
 
@@ -79,7 +83,7 @@ public:
 	void EvalDi(UmaSCE_Main_Diset diset);//计算di
 	void EvalDi(UmaSCE_Main_Diset diset, int& Carrier_main, int& Carrier_fold, int& Carrier_sp);//直接获得di
 
-	void EvalV5();//计算v5
+	void EvalV5(bool is_dominant_lead,int length);//计算v5
 
 private:
 

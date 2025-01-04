@@ -2,7 +2,9 @@
 #include <type_traits>
 #include <iostream>
 #include<math.h>
-
+#include<vector>
+#include<time.h>
+#include<random>
 using namespace std;
 
 UmaSCE_Main::UmaSCE_Main() 
@@ -781,7 +783,187 @@ void UmaSCE_Main::EvalDi(UmaSCE_Main_Diset diset, int& Carrier_main, int& Carrie
 	Carrier_sp = v4sp_ept;
 }
 
-void UmaSCE_Main::EvalV5()
+void UmaSCE_Main::EvalV5(bool is_dominant_lead, int length)
 {
-}
+	vector<UmaSCE_Main>card_vector(6);
+	//分配s卡
+	if (is_dominant_lead)
+	{
+		if (length < 3)
+		{
+			//0,0,2,2,4,4
+			card_vector[0].type_static = 0;
+			card_vector[1].type_static = 0;
+			card_vector[2].type_static = 2;
+			card_vector[3].type_static = 2;
+			card_vector[4].type_static = 4;
+			card_vector[5].type_static = 4;
+		}
+		else
+		{
+			//0,0,1,1,2,4
+			card_vector[0].type_static = 0;
+			card_vector[1].type_static = 0;
+			card_vector[2].type_static = 1;
+			card_vector[3].type_static = 1;
+			card_vector[4].type_static = 2;
+			card_vector[5].type_static = 4;
+		}
+	}
+	else
+	{
+		if (length < 3)
+		{
+			//0,0,2,2,3,4
+			card_vector[0].type_static = 0;
+			card_vector[1].type_static = 0;
+			card_vector[2].type_static = 2;
+			card_vector[3].type_static = 2;
+			card_vector[4].type_static = 3;
+			card_vector[5].type_static = 4;
+		}
+		else if(length==4)
+		{
+			//0,0,1,2,2,4
+			card_vector[0].type_static = 0;
+			card_vector[1].type_static = 0;
+			card_vector[2].type_static = 1;
+			card_vector[3].type_static = 2;
+			card_vector[4].type_static = 2;
+			card_vector[5].type_static = 4;
+		}
+		else
+		{
+			//0,0,1,1,2,4
+			card_vector[0].type_static = 0;
+			card_vector[1].type_static = 0;
+			card_vector[2].type_static = 1;
+			card_vector[3].type_static = 1;
+			card_vector[4].type_static = 2;
+			card_vector[5].type_static = 4;
+		}
+	}
+	//分配属性
+	for (auto& i : card_vector)
+	{
+		switch (i.type_static)
+		{
+		case 0:
+			i.friendship_award = 30;
+			i.enthusiasm_award = 0;
+			i.training_award = 10;
+			i.friendship_point = 35;
+			i.strike_point = 100;
+			i.speed_bonus = 3;
+			i.power_bonus = 2;
+			i.sp_bonus = 1;
+			break;
+		case 1:
+			i.friendship_award = 30;
+			i.enthusiasm_award = 30;
+			i.training_award = 10;
+			i.friendship_point = 30;
+			i.strike_point = 65;
+			i.sp_bonus = 1;
+			i.stamina_bonus = 2;
+			i.willpower_bonus = 1;
+			break;
+		case 2:
+			i.friendship_award = 30;
+			i.enthusiasm_award = 30;
+			i.training_award = 10;
+			i.friendship_point = 20;
+			i.strike_point = 65;
+			i.sp_bonus = 1;
+			i.power_bonus = 3;
+			i.stamina_bonus = 1;
+			break;
+		case 3:
+			i.friendship_award = 30;
+			i.enthusiasm_award = 0;
+			i.training_award = 0;
+			i.friendship_point = 20;
+			i.strike_point = 50;
+			i.sp_bonus = 1;
+			i.speed_bonus = 1;
+			i.power_bonus = 2;
+			i.willpower_bonus = 1;
+			break;
+		case 4:
+			i.friendship_award = 30;
+			i.enthusiasm_award = 50;
+			i.training_award = 20;
+			i.friendship_point = 25;
+			i.strike_point = 80;
+			i.sp_bonus = 2;
+			i.wit_bonus = 1;
+			i.speed_bonus = 1;
+			break;
+		default:if (is_notice) { throw("意料之外的type_static值"); abort(); }
+		}
+	}
+	//将玩家的属性覆盖
+	for (auto& i : card_vector)
+	{
+		if (i.type_static = type_static)
+		{
+			i.friendship_award = friendship_award;
+			i.enthusiasm_award = enthusiasm_award;
+			i.training_award = training_award;
+			i.friendship_point = friendship_point;
+			i.strike_point = strike_point;
+			i.speed_bonus = speed_bonus;
+			i.stamina_bonus = stamina_bonus;
+			i.power_bonus = power_bonus;
+			i.willpower_bonus = willpower_bonus;
+			i.wit_bonus = wit_bonus;
+			i.sp_bonus = sp_bonus;
+			break;
+		}
+	}
+	//定义外圈循环中的全局变量
+	struct Attributes_struct
+	{
+		int present;
+		int expectation;
+	};
+	struct Ground_struct
+	{
+		double friendship_rate;
+		int training_award;
+		int enthusiasm_award;
+		int member_award;
+		int ground_bonus;
+		vector<int> viceground_bonus;
+		int spground_bonus;
+		int added;
+		vector<int> viceadded;
+		int spadded;
+		int click_times;
+		int temp_click_times;
+		int scale;
+		int score;
+	};
+	struct Strike_rate_struct
+	{
+		double strike_rate;
+		double unstrike_rate;
+	};
+	int round;
+	int stage;
+	vector<Attributes_struct> attributes_vector(6);
+	vector<Ground_struct> ground_vector(5);
+	vector<Strike_rate_struct> strike_rate_vector(6);
+	{
+		int m = 0;
+		for (auto& i : card_vector)
+		{
+			strike_rate_vector[m].strike_rate = (i.strike_point + static_cast<double>(100)) / (i.strike_point + 550);
+			strike_rate_vector[m].unstrike_rate = (100 / (i.strike_point + static_cast<double>(550))) * 4;
+			m++;
+		}
+	}
+	srand(time(NULL));
+	//外圈循环
 
+}
