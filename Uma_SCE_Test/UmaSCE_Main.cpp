@@ -1177,10 +1177,100 @@ void UmaSCE_Main::EvalV5(int times)
 					}
 					i.added = (temp_basic_bonus + i.ground_bonus) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
 					//viceadded
+					switch (card_vector[m].type_static)
+					{
+					case 0:
+						i.viceadded[2] = (temp_vicebouns + i.viceground_bonus[2]) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
+						break;
+					case 1:
+						i.viceadded[3] = (temp_vicebouns + i.viceground_bonus[3]) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
+						break;
+					case 2:
+						i.viceadded[1] = (temp_vicebouns + i.viceground_bonus[1]) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
+						break;
+					case 3:
+						i.viceadded[0] = (temp_vicebouns + i.viceground_bonus[0]) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
+						i.viceadded[2] = (temp_vicebouns + i.viceground_bonus[2]) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
+						break;
+					case 4:
+						i.viceadded[0] = (temp_vicebouns + i.viceground_bonus[0]) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
+						break;
+					default:
+						if (is_notice) { throw("意料之外的type_static值"); abort(); }
+					}
+					//spadded
+					i.spadded = (temp_spbonus + i.spground_bonus) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
+					m++;
+				}//i结束
+			}
+			//计算score
+			//结束，先不写
 
+			//对比score
+			int temp_ground_index = 0;
+			{
+				int temp_score = ground_vector[0].score;
+				int m = 0;
+				for (auto i : ground_vector)
+				{
+					if (i.score > temp_score)
+					{
+						temp_score = i.score;
+						temp_ground_index = m;
+					}
+					else if (i.score == temp_score)
+					{
+						if (card_vector[m].type_static == 0)
+						{
+							temp_score = i.score;
+							temp_ground_index = m;
+						}
+						else if (card_vector[m].type_static == 2)
+						{
+							temp_score = i.score;
+							temp_ground_index = m;
+						}
+						else if (card_vector[m].type_static == 4)
+						{
+							temp_score = i.score;
+							temp_ground_index = m;
+						}
+						else if (card_vector[m].type_static == 1 and is_dominant_lead)
+						{
+							temp_score = i.score;
+							temp_ground_index = m;
+						}
+					}
+					else if (i.score < temp_score)
+					{
+						//do nothing
+					}
 					m++;
 				}
 			}
+			//赋值（等效于点击）
+			attributes_vector[temp_ground_index].present += ground_vector[temp_ground_index].added;
+			{
+				int m = 0;
+				for (auto i : ground_vector[temp_ground_index].viceadded)
+				{
+					attributes_vector[m].present += i;
+					m++;
+				}
+			}
+			attributes_vector[5].present += ground_vector[temp_ground_index].spadded;
+			//present_friendship_point提升
+			for (auto& i : card_vector)
+			{
+				if (i.present_ground == temp_ground_index)
+				{
+					i.present_friendship_point += 5;
+				}
+			}
+			//记录点击次数
+
+
+			
 			{//test
 				{
 					int m = 0;
@@ -1196,7 +1286,6 @@ void UmaSCE_Main::EvalV5(int times)
 						}
 						cout << endl;
 						m++;
-
 					}
 				}
 			}
