@@ -13,36 +13,40 @@ C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(771,46): w
 C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(772,42): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
 C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(773,50): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
 C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1003,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1178,139): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1183,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1183,152): warning C4244:         with
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1183,152): warning C4244:         [
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1183,152): warning C4244:             _Ty=int
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1183,152): warning C4244:         ]
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1186,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1186,152): warning C4244:         with
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1186,152): warning C4244:         [
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1186,152): warning C4244:             _Ty=int
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1186,152): warning C4244:         ]
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1189,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1189,152): warning C4244:         with
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1189,152): warning C4244:         [
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1189,152): warning C4244:             _Ty=int
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1189,152): warning C4244:         ]
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1192,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1192,152): warning C4244:         with
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1192,152): warning C4244:         [
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1192,152): warning C4244:             _Ty=int
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1192,152): warning C4244:         ]
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1179,139): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1184,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1184,152): warning C4244:         with
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1184,152): warning C4244:         [
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1184,152): warning C4244:             _Ty=int
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1184,152): warning C4244:         ]
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1187,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1187,152): warning C4244:         with
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1187,152): warning C4244:         [
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1187,152): warning C4244:             _Ty=int
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1187,152): warning C4244:         ]
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1190,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1190,152): warning C4244:         with
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1190,152): warning C4244:         [
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1190,152): warning C4244:             _Ty=int
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1190,152): warning C4244:         ]
 C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1193,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
 C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1193,152): warning C4244:         with
 C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1193,152): warning C4244:         [
 C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1193,152): warning C4244:             _Ty=int
 C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1193,152): warning C4244:         ]
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1196,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1196,152): warning C4244:         with
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1196,152): warning C4244:         [
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1196,152): warning C4244:             _Ty=int
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1196,152): warning C4244:         ]
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1202,139): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1194,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1194,152): warning C4244:         with
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1194,152): warning C4244:         [
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1194,152): warning C4244:             _Ty=int
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1194,152): warning C4244:         ]
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1197,152): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1197,152): warning C4244:         with
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1197,152): warning C4244:         [
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1197,152): warning C4244:             _Ty=int
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1197,152): warning C4244:         ]
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1203,139): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1330,71): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1346,54): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1350,31): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1354,58): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
   Uma_SCE_Test.vcxproj -> C:\Users\seewo\source\repos\Uma_SCE_Test\x64\Debug\Uma_SCE_Test.exe

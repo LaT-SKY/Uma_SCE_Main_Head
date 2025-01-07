@@ -934,18 +934,18 @@ void UmaSCE_Main::EvalV5(int times)
 			break;
 		}
 	}
-	{//test
-		int m = 0;
-		cout << "scard prop:" << endl;
-		for (auto i : card_vector)
-		{
-			cout << "index:" << m;
-			cout << "type" << i.type_static;
-			cout << "fs" << i.friendship_award << endl;
-			m++;
+	//{//test
+	//	int m = 0;
+	//	cout << "scard prop:" << endl;
+	//	for (auto i : card_vector)
+	//	{
+	//		cout << "index:" << m;
+	//		cout << "type" << i.type_static;
+	//		cout << "fs" << i.friendship_award << endl;
+	//		m++;
 
-		}
-	}
+	//	}
+	//}
 
 
 	//定义外圈循环中的全局变量
@@ -990,16 +990,16 @@ void UmaSCE_Main::EvalV5(int times)
 			m++;
 		}//i结束
 	}
-	{//test
-		int m = 0;
-		for (auto i : strike_rate_vector)
-		{
-			cout << "index:" << m << endl;
-			cout << "str:" << i.strike_rate;
-			cout << "unstr:" << i.unstrike_rate << endl;
-			m++;
-		}
-	}
+	//{//test
+	//	int m = 0;
+	//	for (auto i : strike_rate_vector)
+	//	{
+	//		cout << "index:" << m << endl;
+	//		cout << "str:" << i.strike_rate;
+	//		cout << "unstr:" << i.unstrike_rate << endl;
+	//		m++;
+	//	}
+	//}
 	srand(time(NULL));
 
 
@@ -1009,10 +1009,10 @@ void UmaSCE_Main::EvalV5(int times)
 		//此处还有初始化
 		round = 0;
 		stage = 0;
-		{//test
-			cout << "剩余times:" << times << "  round:" << round << endl;
-			system("pause");
-		}
+		//{//test
+		//	cout << "剩余times:" << times << "  round:" << round << endl;
+		//	system("pause");
+		//}
 		for (auto& i : attributes_vector)
 		{
 			i.present = 0;
@@ -1022,11 +1022,12 @@ void UmaSCE_Main::EvalV5(int times)
 
 		while (round < 73)
 		{
+			round++;
 			//内圈循环
-			{//test
-				cout << "round:" << round << endl;
-				system("pause");
-			}
+			//{//test
+			//	cout << "round:" << round << endl;
+			//	system("pause");
+			//}
 
 
 			for (auto& i : ground_vector)
@@ -1055,14 +1056,14 @@ void UmaSCE_Main::EvalV5(int times)
 				for (auto& i : card_vector)
 				{
 					double temp_check_strike = rand() % 1001 / static_cast<double>(1000);
-					{//test
-						cout << "temp_check_strike:" << temp_check_strike << endl;
-					}
+					//{//test
+					//	cout << "temp_check_strike:" << temp_check_strike << endl;
+					//}
 					if (temp_check_strike < strike_rate_vector[m].strike_rate)
 					{
-						{//test
-							cout << "strike true" << endl;
-						}
+						//{//test
+						//	cout << "strike true" << endl;
+						//}
 						i.present_ground = i.type_static;
 						//present_ground为私有成员
 					}
@@ -1082,15 +1083,15 @@ void UmaSCE_Main::EvalV5(int times)
 
 				}//i结束
 			}
-			{//test
-				cout << "i.present:";
-				for (auto& i : card_vector)
-				{
-					cout << i.present_ground << ",";
-				}
-				cout << endl;
-				system("pause");
-			}
+			//{//test
+			//	cout << "i.present:";
+			//	for (auto& i : card_vector)
+			//	{
+			//		cout << i.present_ground << ",";
+			//	}
+			//	cout << endl;
+			//	system("pause");
+			//}
 
 
 			//分配s卡信息至各个ground_vector内
@@ -1268,29 +1269,108 @@ void UmaSCE_Main::EvalV5(int times)
 				}
 			}
 			//记录点击次数
-
-
-			
-			{//test
+			ground_vector[temp_ground_index].click_times++;
+			ground_vector[temp_ground_index].temp_click_times++;
+			//ground升级判断
+			for (auto& i : ground_vector)
+			{
+				if (i.temp_click_times == 5 and i.scale <= 5)
 				{
-					int m = 0;
-					cout << "ground:" << endl;
-					for (auto i : ground_vector)
-					{
-						cout << "index:" << m;
-						cout << "added:" << i.added;
-						cout << "viceadded:";
-						for (auto m : i.viceadded)
-						{
-							cout << m << ",";
-						}
-						cout << endl;
-						m++;
-					}
+					i.scale++;
+					i.temp_click_times = 0;
 				}
 			}
-
-
+			//阶段判断
+			if (round > 59)
+			{
+				stage = 5;
+			}
+			else if (round > 47)
+			{
+				stage = 4;
+			}
+			else if (round > 35)
+			{
+				stage = 3;
+			}
+			else if (round > 23)
+			{
+				stage = 2;
+			}
+			else if (round > 11)
+			{
+				stage = 1;
+			}
+			else
+			{
+				stage = 0;
+			}
+			//{//test
+			//	{
+			//		int m = 0;
+			//		cout << "ground:" << endl;
+			//		for (auto i : ground_vector)
+			//		{
+			//			cout << "index:" << m;
+			//			cout << "added:" << i.added;
+			//			cout << "viceadded:";
+			//			for (auto m : i.viceadded)
+			//			{
+			//				cout << m << ",";
+			//			}
+			//			cout << endl;
+			//			m++;
+			//		}
+			//	}
+			//}
 		}//内圈循环结束
+		//收集数据及处理数据
+		if (v5main_ept != 0)
+		{
+			v5main_ept = (v5main_ept + attributes_vector[type_static].present) * 0.5;
+		}
+		else
+		{
+			v5main_ept = attributes_vector[type_static].present;
+		}
+		int temp_fold_ept = 0;
+		for (int i = 0; i < 5; i++)
+		{
+			if (i != type_static)
+			{
+				temp_fold_ept += attributes_vector[i].present;
+			}
+		}
+		if (v5fold_ept != 0)
+		{
+			v5fold_ept = ((v5fold_ept + temp_fold_ept) * 0.5) * 0.25;
+		}
+		else
+		{
+			v5fold_ept = temp_fold_ept * 0.25;
+		}
+		if (v5sp_ept != 0)
+		{
+			v5sp_ept = ((v5sp_ept + attributes_vector[5].present) * 0.5);
+		}
+		else
+		{
+			v5sp_ept = attributes_vector[5].present;
+		}
+		{//test
+			cout << "v5main_ept:" << v5main_ept << endl;
+			cout << "v5fold_ept:" << v5fold_ept << endl;
+			cout << "v5sp_ept:" << v5sp_ept << endl;
+			system("pause");
+		}
+		times--;
 	}//外圈循环结束
+	{
+		int m = 0;
+		for (auto i : ground_vector)
+		{
+			v5click.ground[m] = i.click_times;
+			m++;
+		}
+	}
 }

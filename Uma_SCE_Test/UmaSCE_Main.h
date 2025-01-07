@@ -12,7 +12,6 @@ class UmaSCE_Main
 {
 protected:
 
-
 	int type_static;
 	int friendship_static;
 
@@ -85,6 +84,11 @@ public:
 
 	void EvalV5(int times);//º∆À„v5
 
+	struct UmaSCE_Main_V5click
+	{
+		int ground[5];
+	};
+
 private:
 
 	double unstrike_v1_ept;
@@ -93,7 +97,7 @@ private:
 	int length;
 	int present_ground;
 	int present_friendship_point;
-
+	UmaSCE_Main_V5click v5click = {};
 	//map<string, int> valmap_int{};
 	//map<string, double> valmap_double{};
 	//map<string, bool> valmap_bool{};
