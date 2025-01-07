@@ -1,17 +1,17 @@
-﻿  SCEz_Test.cpp
-  UmaSCE_Main.cpp
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(677,104): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(678,233): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(682,166): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(683,164): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(684,166): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(685,162): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(686,168): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(726,27): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(737,54): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(738,50): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(739,46): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(740,42): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
-C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(741,50): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
-  正在生成代码...
+﻿  UmaSCE_Main.cpp
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(709,104): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(710,233): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(714,166): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(715,164): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(716,166): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(717,162): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(718,168): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(758,27): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(769,54): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(770,50): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(771,46): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(772,42): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(773,50): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1003,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+C:\Users\seewo\source\repos\Uma_SCE_Test\Uma_SCE_Test\UmaSCE_Main.cpp(1178,139): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
   Uma_SCE_Test.vcxproj -> C:\Users\seewo\source\repos\Uma_SCE_Test\x64\Debug\Uma_SCE_Test.exe

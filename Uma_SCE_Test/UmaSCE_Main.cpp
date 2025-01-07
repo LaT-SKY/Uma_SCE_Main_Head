@@ -794,6 +794,11 @@ void UmaSCE_Main::EvalDi(UmaSCE_Main_Diset diset, int& Carrier_main, int& Carrie
 void UmaSCE_Main::EvalV5(int times)
 {
 	vector<UmaSCE_Main>card_vector(6);
+	//初始化card_vector.pressent_ground
+	for (auto& i : card_vector)
+	{
+		i.present_ground = -1;
+	}
 	//分配s卡
 	if (is_dominant_lead)
 	{
@@ -913,7 +918,7 @@ void UmaSCE_Main::EvalV5(int times)
 	//将玩家的属性覆盖
 	for (auto& i : card_vector)
 	{
-		if (i.type_static = type_static)
+		if (i.type_static == type_static)
 		{
 			i.friendship_award = friendship_award;
 			i.enthusiasm_award = enthusiasm_award;
@@ -929,6 +934,20 @@ void UmaSCE_Main::EvalV5(int times)
 			break;
 		}
 	}
+	{//test
+		int m = 0;
+		cout << "scard prop:" << endl;
+		for (auto i : card_vector)
+		{
+			cout << "index:" << m;
+			cout << "type" << i.type_static;
+			cout << "fs" << i.friendship_award << endl;
+			m++;
+
+		}
+	}
+
+
 	//定义外圈循环中的全局变量
 	struct Attributes_struct
 	{
@@ -971,20 +990,45 @@ void UmaSCE_Main::EvalV5(int times)
 			m++;
 		}//i结束
 	}
+	{//test
+		int m = 0;
+		for (auto i : strike_rate_vector)
+		{
+			cout << "index:" << m << endl;
+			cout << "str:" << i.strike_rate;
+			cout << "unstr:" << i.unstrike_rate << endl;
+			m++;
+		}
+	}
 	srand(time(NULL));
+
+
 	//外圈循环
 	while (times > 0)
 	{
 		//此处还有初始化
 		round = 0;
 		stage = 0;
+		{//test
+			cout << "剩余times:" << times << "  round:" << round << endl;
+			system("pause");
+		}
 		for (auto& i : attributes_vector)
 		{
 			i.present = 0;
 			i.expectation = 0;
 		}//i结束
+
+
 		while (round < 73)
 		{
+			//内圈循环
+			{//test
+				cout << "round:" << round << endl;
+				system("pause");
+			}
+
+
 			for (auto& i : ground_vector)
 			{
 				i.friendship_rate = 1;
@@ -999,34 +1043,56 @@ void UmaSCE_Main::EvalV5(int times)
 				i.spadded = 0;
 				i.click_times = 0;
 				i.temp_click_times = 0;
-				i.scale = 0;
+				i.scale = 1;
 				i.score = 0;
 			}//i结束
 			++round;
+
+
 			//分配支援卡至各个场地
-			double temp_check_strike = rand();
 			{
 				int m = 0;
 				for (auto& i : card_vector)
 				{
+					double temp_check_strike = rand() % 1001 / static_cast<double>(1000);
+					{//test
+						cout << "temp_check_strike:" << temp_check_strike << endl;
+					}
 					if (temp_check_strike < strike_rate_vector[m].strike_rate)
 					{
+						{//test
+							cout << "strike true" << endl;
+						}
 						i.present_ground = i.type_static;
 						//present_ground为私有成员
 					}
 					else if (temp_check_strike < strike_rate_vector[m].strike_rate+strike_rate_vector[m].unstrike_rate)
 					{
-						while (i.present_ground != i.type_static)
+						i.present_ground = rand() % 5;
+						while (i.present_ground == i.type_static)
 						{
-							i.present_ground = rand() % 4;
+							i.present_ground = rand() % 5;
 						}
 					}
 					else
 					{
 						i.present_ground = -1;
 					}
+					m++;
+
 				}//i结束
 			}
+			{//test
+				cout << "i.present:";
+				for (auto& i : card_vector)
+				{
+					cout << i.present_ground << ",";
+				}
+				cout << endl;
+				system("pause");
+			}
+
+
 			//分配s卡信息至各个ground_vector内
 			for (auto& i : card_vector)
 			{
@@ -1090,12 +1156,14 @@ void UmaSCE_Main::EvalV5(int times)
 					ground_vector[4].spground_bonus += i.sp_bonus;
 				}
 			}//i结束
+
+
 			//计算added  viceadded与spadded
 			{
 				int m = 0;
 				for (auto& i : ground_vector)
 				{
-					int temp_basic_bonus;
+					int temp_basic_bonus{};
 					int temp_vicebouns;
 					int temp_spbonus;
 					switch (i.scale)
@@ -1109,9 +1177,29 @@ void UmaSCE_Main::EvalV5(int times)
 					}
 					i.added = (temp_basic_bonus + i.ground_bonus) * i.friendship_rate * (i.training_award * 0.01 + 1) * (i.enthusiasm_award * 0.002 + 1) * (i.member_award * 0.05 + 1);
 					//viceadded
+
+					m++;
 				}
 			}
+			{//test
+				{
+					int m = 0;
+					cout << "ground:" << endl;
+					for (auto i : ground_vector)
+					{
+						cout << "index:" << m;
+						cout << "added:" << i.added;
+						cout << "viceadded:";
+						for (auto m : i.viceadded)
+						{
+							cout << m << ",";
+						}
+						cout << endl;
+						m++;
 
+					}
+				}
+			}
 
 
 		}//内圈循环结束
