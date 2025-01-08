@@ -21,9 +21,15 @@
     <ClCompile Include="UmaSCE_Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="UmaSCE_UI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UmaSCE_Main.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UmaSCE_UI.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

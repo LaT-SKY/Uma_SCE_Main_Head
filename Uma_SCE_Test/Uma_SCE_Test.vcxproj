@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClCompile Include="SCEz_Test.cpp" />
     <ClCompile Include="UmaSCE_Main.cpp" />
+    <ClCompile Include="UmaSCE_UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UmaSCE_Main.h" />
+    <ClInclude Include="UmaSCE_UI.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />

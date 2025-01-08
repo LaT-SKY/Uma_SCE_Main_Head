@@ -764,13 +764,53 @@ void UmaSCE_Main::EvalDi(UmaSCE_Main_Diset diset)
 	{
 		scaling_di[i] = - cos(arrv[i] * 0.5 * sqrt(diset.abex_di[i] * diset.abex_di[i] * diset.tolerance_di[i] * 0.01));
 	}
+	double strength_di[5] = { 0 };
+	for (int i=0;i<5;i++)
+	{
+		strength_di[i] = sqrt(diset.abex_di[i] * diset.abex_di[i]*diset.tolerance_di[i]*0.01);
+	}
 	transcript.type_static = type_static;
-	//if()
-	transcript.friendship_award += all_friendship_award * scaling_di[0];
-	transcript.enthusiasm_award += enthusiasm_award * scaling_di[1];
-	transcript.training_award += training_award * scaling_di[2];
-	transcript.strike_point += strike_point * scaling_di[3];
-	transcript.friendship_point += friendship_point * scaling_di[4];
+	if (strength_di[0] * 2 <= all_friendship_award)
+	{
+		transcript.friendship_award *= 2;
+	}
+	else
+	{
+		transcript.friendship_award += all_friendship_award * scaling_di[0];
+	}
+	if (strength_di[1] * 2 <= enthusiasm_award)
+	{
+		transcript.enthusiasm_award *= 2;
+	}
+	else
+	{
+		transcript.enthusiasm_award += enthusiasm_award * scaling_di[1];
+	}
+	if (strength_di[2] * 2 <= training_award)
+	{
+		transcript.training_award *= 2;
+	}
+	else
+	{
+		transcript.training_award += training_award * scaling_di[2];
+	}
+	if (strength_di[3] * 2 <= strike_point)
+	{
+		transcript.strike_point *= 2;
+	}
+	else
+	{
+		transcript.strike_point += strike_point * scaling_di[3];
+	}
+	if (strength_di[4] * 2 <= friendship_point)
+	{
+		transcript.friendship_point *= 2;
+	}
+	else
+	{
+		transcript.friendship_point += friendship_point * scaling_di[4];
+	}
+
 	transcript.speed_bonus = speed_bonus;
 	transcript.stamina_bonus = stamina_bonus;
 	transcript.power_bonus = power_bonus;
@@ -943,7 +983,6 @@ void UmaSCE_Main::EvalV5(int times)
 	//		cout << "type" << i.type_static;
 	//		cout << "fs" << i.friendship_award << endl;
 	//		m++;
-
 	//	}
 	//}
 
@@ -970,12 +1009,15 @@ void UmaSCE_Main::EvalV5(int times)
 		int temp_click_times;
 		int scale;
 		int score;
+		int type;
 	};
 	struct Strike_rate_struct
 	{
 		double strike_rate;
 		double unstrike_rate;
 	};
+
+
 	int round;
 	int stage;
 	vector<Attributes_struct> attributes_vector(6);
@@ -1030,23 +1072,28 @@ void UmaSCE_Main::EvalV5(int times)
 			//}
 
 
-			for (auto& i : ground_vector)
 			{
-				i.friendship_rate = 1;
-				i.training_award = 0;
-				i.enthusiasm_award = 0;
-				i.member_award = 0;
-				i.ground_bonus = 0;
-				i.viceground_bonus = { 0,0,0,0,0,0 };
-				i.spground_bonus = 0;
-				i.added = 0;
-				i.viceadded = { 0,0,0,0,0,0 };
-				i.spadded = 0;
-				i.click_times = 0;
-				i.temp_click_times = 0;
-				i.scale = 1;
-				i.score = 0;
-			}//i结束
+				int m = 0;
+				for (auto& i : ground_vector)
+				{
+					i.friendship_rate = 1;
+					i.training_award = 0;
+					i.enthusiasm_award = 0;
+					i.member_award = 0;
+					i.ground_bonus = 0;
+					i.viceground_bonus = { 0,0,0,0,0,0 };
+					i.spground_bonus = 0;
+					i.added = 0;
+					i.viceadded = { 0,0,0,0,0,0 };
+					i.spadded = 0;
+					i.click_times = 0;
+					i.temp_click_times = 0;
+					i.scale = 1;
+					i.score = 0;
+					i.type = m;
+					m++;
+				}//i结束
+			}
 			++round;
 
 
@@ -1204,7 +1251,11 @@ void UmaSCE_Main::EvalV5(int times)
 					m++;
 				}//i结束
 			}
+
+
 			//计算score
+			 
+			 
 			//结束，先不写
 
 			//对比score
@@ -1305,6 +1356,8 @@ void UmaSCE_Main::EvalV5(int times)
 			{
 				stage = 0;
 			}
+
+
 			//{//test
 			//	{
 			//		int m = 0;
@@ -1324,6 +1377,8 @@ void UmaSCE_Main::EvalV5(int times)
 			//	}
 			//}
 		}//内圈循环结束
+
+
 		//收集数据及处理数据
 		if (v5main_ept != 0)
 		{
@@ -1357,6 +1412,8 @@ void UmaSCE_Main::EvalV5(int times)
 		{
 			v5sp_ept = attributes_vector[5].present;
 		}
+
+
 		{//test
 			cout << "v5main_ept:" << v5main_ept << endl;
 			cout << "v5fold_ept:" << v5fold_ept << endl;
@@ -1365,9 +1422,11 @@ void UmaSCE_Main::EvalV5(int times)
 		}
 		times--;
 	}//外圈循环结束
+
+
 	{
 		int m = 0;
-		for (auto i : ground_vector)
+		for (auto& i : ground_vector)
 		{
 			v5click.ground[m] = i.click_times;
 			m++;
